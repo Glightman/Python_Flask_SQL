@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtr=device-widtr, initial-scale=1.0">
+    <title>App Filmes BlueFlix</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/pages/read_all.css">
+</head>
+<body>
+    
+    {% include 'header.html' %}
+
+    <div class="bloco">
+        <h2>Visualizar todos os registros</h2>
+    </div>
+
+    <div class="bloco">
+        <table class="tabela">
+            <tr class="tabela_header">
+                <td>ID</td>
+                <td>Nome</td>
+                <td>Imagem</td>
+                <td>Ações</td>
+            </tr>
+
+            <tbody>
+                {% for filme in listaDeFilmes %}
+                    <tr>
+                        <td>
+                            {{filme.id}}
+                        </td>
+                        <td>
+                            {{filme.nome}}
+                        </td>
+                        <td>
+                            <img src="{{filme.url}}" alt="{{filme.nome}}">
+                        </td>
+                        <td>
+                            <a href="/read/{{filme.id}}" class="botao">Visualizar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
